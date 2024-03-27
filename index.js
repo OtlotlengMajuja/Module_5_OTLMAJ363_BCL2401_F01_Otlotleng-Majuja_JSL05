@@ -1,16 +1,27 @@
 // Array of song objects. Add at least 5 songs with title, artist, and genre properties.
 const songs = [
-    { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
     { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock" },
-    { title: "I Want You Back", artist: "The Jackson 5", genre: "Pop" },
-    { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock" },
     { title: "Cherry Bomb", artist: "The Runaways", genre: "Rock" },
-    { title: "Escape (The Piña Colada Song)", artist: "Rupert Holmes", genre: "Pop" },
-    { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B" },
-    { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
-    { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
+    { title: "You Don't Know My Name", artist: "Alicia Keys", genre: "R&B" },
+    { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
+    { title: "Love Language", artist: "SZA", genre: "R&B" },
+    { title: "Boy Bye", artist: "Ari Lennox", genre: "R&B" },
+    { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
+    { title: "Seven Rings", artist: "Ariana Grande", genre: "Pop" },
+    { title: "Got Me Started", artist: "Troye Sivan", genre: "Pop" },
+    { title: "Popular", artist: "The Weeknd", genre: "Pop" },
+    { title: "On & On", artist: "Erykah Badu", genre: "Neo-Soul" },
+    { title: "Nothing Even Matters", artist: "Ms. Lauryn Hill", genre: "Neo-Soul" },
+    { title: "Cranes In the Sky", artist: "Solange", genre: "Neo-Soul" },
+    { title: "Breathe", artist: "UMI", genre: "Neo-Soul" },
+    { title: "FE!N", artist: "Travis Scott", genre: "Hip-hop" },
+    { title: "NEVEREVER", artist: "Destroy Lonely", genre: "Hip-hop" },
+    { title: "Purple Palm Trees", artist: "Jay Jody", genre: "Hip-hop" },
+    { title: "K.K", artist: "Wordz", genre: "Hip-hop" },
+
+
     // Feel free to add even more songs
 ];
 
@@ -18,7 +29,10 @@ const songs = [
 // Object containing each Guardian's preferred genre
 const guardians = {
     "Star-Lord": "Rock",
-    "Gamora": "Pop",
+    "Gamora": "R&B",
+    "Drax": "Pop",
+    "Rocket": "Neo-Soul",
+    "Groot": "Hip-hop",
     // Add preferences for Drax, Rocket, and Groot
 };
 
