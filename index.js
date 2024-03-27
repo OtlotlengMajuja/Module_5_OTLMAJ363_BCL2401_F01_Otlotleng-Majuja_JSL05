@@ -5,7 +5,7 @@ const songs = [
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
     { title: "You Don't Know My Name", artist: "Alicia Keys", genre: "R&B" },
-    { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
+    { title: "Heaven Sent", artist: "Keyshia Cole", genre: "R&B" },
     { title: "Love Language", artist: "SZA", genre: "R&B" },
     { title: "Boy Bye", artist: "Ari Lennox", genre: "R&B" },
     { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
@@ -20,11 +20,7 @@ const songs = [
     { title: "NEVEREVER", artist: "Destroy Lonely", genre: "Hip-hop" },
     { title: "Purple Palm Trees", artist: "Jay Jody", genre: "Hip-hop" },
     { title: "K.K", artist: "Wordz", genre: "Hip-hop" },
-
-
-    // Feel free to add even more songs
 ];
-
 
 // Object containing each Guardian's preferred genre
 const guardians = {
@@ -33,16 +29,25 @@ const guardians = {
     "Drax": "Pop",
     "Rocket": "Neo-Soul",
     "Groot": "Hip-hop",
-    // Add preferences for Drax, Rocket, and Groot
 };
 
 // Function to generate playlist based on preferred genre
 function generatePlaylist(guardians, songs) {
     // Use the map() function to create playlists for each Guardian
     // Your code here
+    const playlists = guardians.map(guardian => {
+        const playlist = songs.filter(song => song.genre === guardian.preferredGenre);
+        return {
+            guardian: guardian.name,
+            playlist: playlist
+        };
+    });
+
+    return playlists;
 }
 
 // Call generatePlaylist and display the playlists for each Guardian
-generatePlaylist(guardians, songs);
+const playlists = generatePlaylist(guardians, songs);
+console.log(playlists)
 
 
