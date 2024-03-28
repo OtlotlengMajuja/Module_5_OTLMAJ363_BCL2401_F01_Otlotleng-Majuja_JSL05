@@ -29,29 +29,24 @@ const guardians = {
     "Drax": "Pop",
     "Rocket": "Neo-Soul",
     "Groot": "Hip-hop",
+    // Add preferences for Drax, Rocket and Groot
 };
 
-// Function to generate playlist based on preferred genre
-function generatePlaylist(guardians, songs) {
-    // Your code here
-    const playlists = Object.entries(guardians).map(([guardian, genre]) => {
 
-        const genreSongs = songs.filter(song => song.genre === genre);
-        playlists[guardian] = genreSongs.map(song => `${song.artist} - ${song.title}`)
 
-    });
-
-    return playlists;
-}
 
 // Call generatePlaylist and display the playlists for each Guardian
 function displayPlaylists(playlists) {
     Object.entries(playlists).forEach(([guardian, playlist]) => {
 
+        // Create a container div for playlists
         const playlistDiv = document.createElement("div");
         playlistDiv.classList.add("playlist");
 
-        const guardianHeader = document.createElement("h3")
+        // Add pointer cursor style
+        document.documentElement.style.cursor = "pointer";
+
+        const guardianHeader = document.createElement("h1")
         guardianHeader.textContent = `${guardian}'s Playlist`;
         playlistDiv.appendChild(guardianHeader);
 
@@ -77,9 +72,24 @@ function displayPlaylists(playlists) {
         document.body.appendChild(playlistElement);
     })
 }
+// Function to generate playlist based on preferred genre
+function generatePlaylist(guardians, songs) {
+    // Use the map() function to create playlists for each Guardian
+    const playlists = Object.entries(guardians).map(([name, genre]) => {
+        // Filter the songs array based on the specified genre
+        const preferredGenre = songs.filter(song => song.genre === genre);
 
-// Generate playlists
-const playlists = generatePlaylist(guardians, songs);
+        // Generate a random playlist of songs
+        const playlist = preferredGenre
+            .sort(() => 0.5 - Math.random())  // This method sorts the elements of an array in place and returns the sorted array.
+            .slice(0, 3);
 
-// Display playlists
+        // Add guardian's name as the first element of the playlist
+        playlist.unshift({ name });
+
+    });
+    return playlists;
+}
+// Call function to display playlists
 displayPlaylists(playlists);
+// Generate playlists
