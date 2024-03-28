@@ -57,39 +57,61 @@ function generatePlaylist(guardians, songs) {
 
 // Helper function to display playlists
 function displayPlaylists(playlists) {
-    Object.entries(playlists).forEach(([guardian, playlist]) => {
+    //  Object.entries(playlists).forEach(([guardian, playlist]) => {
 
-        // Create a container div for playlists
-        const playlistsDiv = document.createElement('div');
-        playlistsDiv.id = 'playlists';
+    // Create a container div for playlists
+    const playlistsDiv = document.createElement('div');
+    playlistsDiv.id = 'playlists';
 
-        // Loop through each playlist
-        playlists.forEach((playlist) => {
-            // Create a playlist container div
-            const playlistDiv = document.createElement('div');
-            playlistDiv.classList.add('playlist');
+    // Loop through each playlist
+    playlists.forEach((playlist) => {
+        // Create a playlist container div
+        const playlistDiv = document.createElement('div');
+        playlistDiv.classList.add('playlist');
 
-            // Create a title h1
-            const title = document.createElement('h1');
-            title.textContent = playlist[0].name + "'s Playlist";
-            playlistDiv.appendChild(title)
+        // Create a title h1
+        const title = document.createElement('h1');
+        title.textContent = playlist[0].name + "'s Playlist";
+        playlistDiv.appendChild(title)
 
-            // Create an unordered list
-            const list = document.createElement('ul');
+        // Create an unordered list
+        const list = document.createElement('ul');
 
-            // Loop through each song in the playlist
-            playlist.slice(1).forEach((song) => {
-                // Create a list items
-                const listItem = document.createElement('ul');
+        // Loop through each song in the playlist
+        playlist.slice(1).forEach((song) => {
+            // Create a list items
+            const listItem = document.createElement('ul');
 
-                // Set the song title and artist
-                const songTitle = document.createElement("span");
-                songTitle.textContent = `${song.title}`;
-                songTitle.className = 'song-title';
-                const songArtist = document.createElement('span');
-                songArtist.textContent = `by ${song.artist}`;
+            // Set the song title and artist
+            const songTitle = document.createElement("span");
+            songTitle.textContent = `${song.title}`;
+            songTitle.className = 'song-title';
+            const songArtist = document.createElement('span');
+            songArtist.textContent = `by ${song.artist}`;
 
-            })
+            // Append title and artist to list item
+            listItem.appendChild(songTitle);
+            listItem.appendChild(songArtist);
+
+            // Append list item to the list
+            list.appendChild(listItem);
+        });
+
+        // Append the list to playlist container
+        playlistDiv.appendChild(list);
+
+        // Append the playlist container to the container div
+        playlistsDiv.appendChild(playlistDiv);
+    });
+
+    // Append the playlist container to container div
+    playlistsDiv.appendChild(playlistDiv);
+
+});
+
+// Append the container div to the document
+document.body.appendChild(playlistsDiv);
+}
 
 /* const guardianHeader = document.createElement("h1")
     guardianHeader.textContent = `${guardian}'s Playlist`;
@@ -122,5 +144,3 @@ function displayPlaylists(playlists) {
 
 
 // Call generatePlaylist and display the playlists for each Guardian
-
-
