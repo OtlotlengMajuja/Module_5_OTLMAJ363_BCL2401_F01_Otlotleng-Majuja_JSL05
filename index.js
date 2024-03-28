@@ -43,3 +43,37 @@ function generatePlaylist(guardians, songs) {
 
     return playlists;
 }
+
+// Call generatePlaylist and display the playlists for each Guardian
+function displayPlaylists(playlists) {
+    Object.entries(playlists).forEach(([guardian, playlist]) => {
+
+        const playlistDiv = document.createElement("div");
+        playlistDiv.classList.add("playlist");
+
+        const guardianHeader = document.createElement("h3")
+        guardianHeader.textContent = `${guardian}'s Playlist`;
+        playlistDiv.appendChild(guardianHeader);
+
+        const songList = document.createElement("ul");
+
+        playlist.forEach(song => {
+            const [artist, title] = song.split(' - ');
+            const songItem = document.createElement("ul");
+            songItem.classList.add("song");
+            const songTitle = document.createElement("span");
+            songTitle.classList.add("song-title");
+            songTitle.textContent = title;
+            const artistName = document.createElement("span");
+            artistName.textContent = ` by ${artist}`;
+            songItem.appendChild(songTitle);
+            songItem.appendChild(artistName);
+            songList.appendChild(songItem);
+
+        });
+
+        playlistElement.appendChild(songList);
+
+        document.body.appendChild(playlistElement);
+    })
+}
