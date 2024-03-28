@@ -77,3 +77,6 @@ function displayPlaylists(playlists) {
         document.body.appendChild(playlistElement);
     })
 }
+
+// Generate playlists
+const playlists = generatePlaylist(guardians, songs);
