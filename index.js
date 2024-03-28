@@ -82,34 +82,40 @@ function displayPlaylists(playlists) {
                 // Create a list items
                 const listItem = document.createElement('ul');
 
+                // Set the song title and artist
+                const songTitle = document.createElement("span");
+                songTitle.textContent = `${song.title}`;
+                songTitle.className = 'song-title';
+                const songArtist = document.createElement('span');
+                songArtist.textContent = `by ${song.artist}`;
+
             })
 
-            const guardianHeader = document.createElement("h1")
-            guardianHeader.textContent = `${guardian}'s Playlist`;
-            playlistDiv.appendChild(guardianHeader);
+/* const guardianHeader = document.createElement("h1")
+    guardianHeader.textContent = `${guardian}'s Playlist`;
+    playlistDiv.appendChild(guardianHeader);
 
-            const songList = document.createElement("ul");
+    const songList = document.createElement("ul");
 
-            playlist.forEach(song => {
-                const [artist, title] = song.split(' - ');
-                const songItem = document.createElement("ul");
-                songItem.classList.add("song");
-                const songTitle = document.createElement("span");
-                songTitle.classList.add("song-title");
-                songTitle.textContent = title;
-                const artistName = document.createElement("span");
-                artistName.textContent = ` by ${artist}`;
-                songItem.appendChild(songTitle);
-                songItem.appendChild(artistName);
-                songList.appendChild(songItem);
+    playlist.forEach(song => {
+        const [artist, title] = song.split(' - ');
+        const songItem = document.createElement("ul");
+        songItem.classList.add("song");
+        
+        songTitle.classList.add("song-title");
+        const artistName = document.createElement("span");
+        artistName.textContent = ` by ${artist}`;
+        songItem.appendChild(songTitle);
+        songItem.appendChild(artistName);
+        songList.appendChild(songItem);
 
-            });
+    });
 
-            playlistElement.appendChild(songList);
+    playlistElement.appendChild(songList);
 
-            document.body.appendChild(playlistElement);
-        })
-    }
+    document.body.appendChild(playlistElement);
+})
+}
 
 
 // Generate playlists
