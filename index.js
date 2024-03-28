@@ -33,21 +33,13 @@ const guardians = {
 
 // Function to generate playlist based on preferred genre
 function generatePlaylist(guardians, songs) {
-    // Use the map() function to create playlists for each Guardian
     // Your code here
-    const playlists = guardians.map(guardian => {
-        const playlist = songs.filter(song => song.genre === guardian.preferredGenre);
-        return {
-            guardian: guardian.name,
-            playlist: playlist
-        };
+    const playlists = Object.entries(guardians).map(([guardian, genre]) => {
+
+        const genreSongs = songs.filter(song => song.genre === genre);
+        playlists[guardian] = genreSongs.map(song => `${song.artist} - ${song.title}`)
+
     });
 
     return playlists;
 }
-
-// Call generatePlaylist and display the playlists for each Guardian
-const playlists = generatePlaylist(guardians, songs);
-console.log(playlists)
-
-
