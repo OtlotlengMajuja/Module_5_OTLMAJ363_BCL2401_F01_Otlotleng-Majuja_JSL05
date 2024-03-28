@@ -80,3 +80,6 @@ function displayPlaylists(playlists) {
 
 // Generate playlists
 const playlists = generatePlaylist(guardians, songs);
+
+// Display playlists
+displayPlaylists(playlists);
