@@ -63,6 +63,10 @@ function displayPlaylists(playlists) {
     const playlistsDiv = document.createElement('div');
     playlistsDiv.id = 'playlists';
 
+
+    // Add pointer cursor style
+    document.documentElement.style.cursor = 'pointer';
+
     // Loop through each playlist
     playlists.forEach((playlist) => {
         // Create a playlist container div
@@ -88,7 +92,7 @@ function displayPlaylists(playlists) {
             songTitle.textContent = `${song.title}`;
             songTitle.className = 'song-title';
             const songArtist = document.createElement('span');
-            songArtist.textContent = `by ${song.artist}`;
+            songArtist.textContent = ` by ${song.artist}`;
 
             // Append title and artist to list item
             listItem.appendChild(songTitle);
@@ -111,3 +115,5 @@ function displayPlaylists(playlists) {
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
+
+console.log(generatePlaylist);
